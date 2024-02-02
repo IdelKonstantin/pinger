@@ -13,12 +13,14 @@ int main(int argc, char** argv) {
 	ConfigReader cfgr{argv[1]};
 
 	auto confReadResult = cfgr.getSiteList();
+	auto readSuccess = confReadResult.first;
+	auto sitesList = confReadResult.second;
 
-	if(!confReadResult.first) {
+	if(!readSuccess) {
 		std::cerr << "Can't open config file specified..." << std::endl;
 		return -2;
 	}
 
-	auto requestResults = Pinger{}.pingThemAll(confReadResult.second);
+	auto requestResults = Pinger{}.pingThemAll(sitesList);
 	std::cout << OutFormer{}.formJson(requestResults) << std::endl;
 }
