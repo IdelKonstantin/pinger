@@ -1,0 +1,9 @@
+inet_pinger
+*.a
+*.so
+CMakeFiles/
+CMakeCache.txt
+*.cmake
+*.txt.user
+Makefile
+__pycache__/
