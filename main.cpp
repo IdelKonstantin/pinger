@@ -11,8 +11,6 @@ int main(int argc, char** argv) {
 	}
 
 	ConfigReader cfgr{argv[1]};
-	Pinger png;
-	OutFormer of;
 
 	auto confReadResult = cfgr.getSiteList();
 
@@ -21,6 +19,6 @@ int main(int argc, char** argv) {
 		return -2;
 	}
 
-	auto requestResults = png.pingThemAll(confReadResult.second);
-	std::cout << of.formJson(requestResults) << std::endl;
+	auto requestResults = Pinger{}.pingThemAll(confReadResult.second);
+	std::cout << OutFormer{}.formJson(requestResults) << std::endl;
 }
