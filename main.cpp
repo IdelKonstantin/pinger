@@ -17,6 +17,7 @@ int main(int argc, char** argv) {
 	auto sitesList = confReadResult.second;
 
 	if(!readSuccess) {
+		
 		std::cerr << "Can't open config file specified..." << std::endl;
 		return -2;
 	}
